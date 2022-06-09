@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<style type="text/css">
+    .bs-example{
+        margin: 0px;
+
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a href="/" class="navbar-brand">Library Management</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="{% url 'viewbook' %}" class="nav-item nav-link active">Books</a>
+
+            </div>
+
+            <div class="navbar-nav">
+                {% if user.is_authenticated %}
+                <a href="logout" class="nav-item nav-link">LOGOUT</a> &nbsp
+                {% else %}
+                <a href="{% url 'adminlogin' %}" class="nav-item nav-link">LOGIN</a> &nbsp
+                {% endif %}
+            </div>
+
+
+
+
+        </div>
+    </nav>
+</div>
+
+
+</body>
+</html>
